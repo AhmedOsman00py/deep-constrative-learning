@@ -2,7 +2,7 @@
 Projet de Deep Learning M2DS - Constrative Learning
 
 
-# Idées
+## Idées
 
 Après avoir créer l'algorithme :
 
