@@ -1,0 +1,1 @@
+# Write a class resnet-50 script with use torch librairie and take an image and return an image some size
