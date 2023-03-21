@@ -1,1 +1,4 @@
 resnet50_default.pth
+basic_model.pth
+data/**
+__pycache__/**
