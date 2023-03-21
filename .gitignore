@@ -1,6 +1,7 @@
 .ipynb_checkpoints/**
-data/**
 resnet18_default.pth
 vgg16_trained.pth
+resnet50_default.pth
 basic_model.pth
+data/**
 __pycache__/**
