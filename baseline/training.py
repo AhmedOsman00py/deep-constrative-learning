@@ -1,5 +1,6 @@
 from utils import *
 from tqdm import tqdm
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 
 class training:
@@ -14,6 +15,8 @@ class training:
         loss_valid, acc_valid = [], []
         loss_train, acc_train = [], []
         model = model.to(self.device)
+        scheduler = ReduceLROnPlateau(optimizer, factor=0.5, patience=4)
+        early_stopping = EarlyStopping(patience=40, delta=0)
 
         for epoch in tqdm(range(epochs)):
             # Training
@@ -65,7 +68,13 @@ class training:
                     idx += 1
 
                 acc_valid.append(self.metric(ground_truth, t_out))
-                loss_valid.append(np.mean(t_loss))
+                val_loss = np.mean(t_loss)
+                loss_valid.append(val_loss)
+                scheduler.step(val_loss)
+
+            if early_stopping(val_loss):
+                print("Early stopping after epoch", epoch)
+                break
 
             with torch.no_grad():
                 idx = 0
