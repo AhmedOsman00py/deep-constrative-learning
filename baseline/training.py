@@ -11,12 +11,12 @@ class training:
         self.metric = metric
         self.device = get_device()
 
-    def train(self, model, epochs, optimizer, criterion, output_fn):
+    def train(self, model, epochs, optimizer, criterion, output_fn, RGB = False, patience_LR = 3, patience_earlystop = 8):
         loss_valid, acc_valid = [], []
         loss_train, acc_train = [], []
         model = model.to(self.device)
-        scheduler = ReduceLROnPlateau(optimizer, factor=0.5, patience=4)
-        early_stopping = EarlyStopping(patience=40, delta=0)
+        scheduler = ReduceLROnPlateau(optimizer, factor=0.5, patience=patience_LR)
+        early_stopping = EarlyStopping(patience=patience_earlystop, delta=0)
 
         for epoch in tqdm(range(epochs)):
             # Training
@@ -25,6 +25,8 @@ class training:
             for idx, batch in enumerate(self.train_loader):
                 # get the inputs; batch is a list of [inputs, labels]
                 inputs, labels = batch
+                if RGB:
+                    inputs = torch.cat([inputs,inputs,inputs], dim=1)
                 inputs = inputs.to(self.device)  # train on GPU
                 labels = labels.to(self.device)
 
@@ -43,6 +45,8 @@ class training:
                 idx = 0
                 for batch in self.val_loader:
                     inputs, labels = batch
+                    if RGB:
+                        inputs = torch.cat([inputs,inputs,inputs], dim=1)
                     inputs = inputs.to(self.device)
                     labels = labels.to(self.device)
                     if idx == 0:
@@ -80,6 +84,8 @@ class training:
                 idx = 0
                 for batch in self.train_loader:
                     inputs, labels = batch
+                    if RGB:
+                        inputs = torch.cat([inputs,inputs,inputs], dim=1)
                     inputs = inputs.to(self.device)
                     labels = labels.to(self.device)
                     if idx == 0:

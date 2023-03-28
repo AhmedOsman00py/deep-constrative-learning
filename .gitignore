@@ -9,3 +9,4 @@ baseline/data/**
 baseline/__pycache__/
 baseline/models/__pycache__/
 baseline/resnet_50_weighted.pth
+baseline/resnet_50_cpretrained.pth
