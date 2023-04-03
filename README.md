@@ -17,7 +17,7 @@ Our model is a junction between a encoder and a projection head.
 The whole junction will be train of the augmented views of the unlabeled data with a contrastive loss function in order to learn a rich and useful representation of the input images, then we will throw away the projection head and keep the encoder trained to make downstream task, in our case, a classification work.
 
 
-![Augmented view of a 9](results\example_augmented.png "Example Augmented view")
+![Augmented view of a 9](results/example_augmented.png "Example Augmented view")
 
 ## Benchmark
 
