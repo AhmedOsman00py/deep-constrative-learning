@@ -1,5 +1,4 @@
 import torch
-import torch.nn as nn
 
 
 class LinearClassifier(torch.nn.Module):
@@ -14,7 +13,7 @@ class LinearClassifier(torch.nn.Module):
     def forward(self, x):
         x = self.fc(x)
         return x
-    
+
 
 class TwoLayersClassifier(torch.nn.Module):
     """Linear classifier"""
@@ -22,8 +21,7 @@ class TwoLayersClassifier(torch.nn.Module):
     def __init__(self):
         super(TwoLayersClassifier, self).__init__()
         self.fc = torch.nn.Sequential(
-            torch.nn.Linear(4 * 4 * 128, 512),
-            torch.nn.Linear(512,10)
+            torch.nn.Linear(4 * 4 * 128, 512), torch.nn.Linear(512, 10)
         )
 
     def forward(self, x):

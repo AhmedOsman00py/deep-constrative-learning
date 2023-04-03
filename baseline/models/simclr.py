@@ -1,13 +1,12 @@
-import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
 
-class SupCon(nn.Module):
+class Simclr(nn.Module):
     """backbone + projection head"""
 
     def __init__(self, model, head="mlp", feat_dim=128):
-        super(SupCon, self).__init__()
+        super(Simclr, self).__init__()
 
         self.dim_in = model._to_linear
         self.encoder = model
