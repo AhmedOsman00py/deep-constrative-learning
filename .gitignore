@@ -16,6 +16,5 @@ SIMCLR/**
 .DS_Store
 results/pre_trained_simclr.pth
 results/trained_simclr.pth
-results/example_augmented.png
 baseline/resnet_50_cpretrained.pth
 baseline/resnet_50_weighted.pth
