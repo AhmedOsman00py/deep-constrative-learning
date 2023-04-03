@@ -54,22 +54,3 @@ def get_loader(train_data, test_data, batch_size=32):
 
 def get_accuracy(y_true, y_pred):
     return int(np.sum(np.equal(y_true, y_pred))) / y_true.shape[0]
-
-class EarlyStopping:
-    def __init__(self, patience=10, delta=0):
-        self.patience = patience
-        self.delta = delta
-        self.best_loss = None
-        self.counter = 0
-
-    def __call__(self, val_loss):
-        if self.best_loss is None:
-            self.best_loss = val_loss
-        elif val_loss > self.best_loss - self.delta:
-            self.counter += 1
-            if self.counter >= self.patience:
-                return True
-        else:
-            self.best_loss = val_loss
-            self.counter = 0
-        return False
