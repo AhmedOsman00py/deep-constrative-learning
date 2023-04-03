@@ -8,5 +8,14 @@ __pycache__/**
 baseline/data/**
 baseline/__pycache__/
 baseline/models/__pycache__/
+baseline/resnet_50_weighted.pth
+baseline/resnet_50_cpretrained.pth
+baseline/data/**
+Simclr_model/__pycache__/**
+SIMCLR/**
+.DS_Store
+results/pre_trained_simclr.pth
+results/trained_simclr.pth
+results/example_augmented.png
 baseline/resnet_50_cpretrained.pth
 baseline/resnet_50_weighted.pth
