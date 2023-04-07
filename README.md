@@ -3,7 +3,7 @@
 [![PyTorch version](https://img.shields.io/badge/PyTorch-1.8.0%2B-orange.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 
-# Contrastive learning : SIMCLR
+# Contrastive learning : SimCLR
 
 Contrastive learning is a type of unsupervised learning where the objective is to learn representations of data that are useful for downstream tasks. It works by contrasting different views of the same data point in a latent space, encouraging similar representations for the same data point and different representations for different data points. This allows the model to learn useful features even without labeled data.
 
